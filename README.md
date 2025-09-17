@@ -1,3 +1,7 @@
+<img width="298" height="449" alt="image" src="https://github.com/user-attachments/assets/2ddd1bf9-1204-405d-b217-a78dc796f2b7" />
+
+
+
 Strapi + PostgreSQL + Nginx Reverse Proxy 🚀
 
 A fully dockerized Strapi CMS stack with PostgreSQL database and Nginx reverse proxy, deployable on AWS EC2 t2.medium.
