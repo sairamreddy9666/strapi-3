@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crickets",
+  "info": {
+    "name": "cricket"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Batting": {
+      "type": "string"
+    }
+  }
+}

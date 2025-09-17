@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/crickets",
+      "handler": "cricket.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/crickets/count",
+      "handler": "cricket.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/crickets/:id",
+      "handler": "cricket.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/crickets",
+      "handler": "cricket.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/crickets/:id",
+      "handler": "cricket.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/crickets/:id",
+      "handler": "cricket.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
