@@ -1,55 +1,82 @@
-# Internship Guidelines
+Creating a Dockerfile to containerize the Strapi application.
 
-Welcome to the DevOps Internship Program at PearlThoughts!
+Launch instance with t2.medium for better performance and access with terminal.
 
----
+install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-## Assigned Tasks
+export NVM_DIR="$HOME/.nvm"
 
-- Tasks will be assigned during training meetings.
-- Timely completion is crucial for your learning and contribution to the team.
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
----
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
-## Daily Status Updates
+source ~/.bashrc
 
-- You **must raise a Pull Request (PR)** and submit a status update **at the end of each day**.
-- Failure to submit a PR will be marked as **absent**.
-- Make sure the PR is always from your branch to main. Never commit anything to main!
-- Attach links of PR and loom video in the PR comment
+nvm --version
 
----
+nvm install 18
 
-## 📌 Responsibilities & Expectations
+nvm use 18
 
-### ✅ Participate in Virtual Meetings
+node -v
 
-- Attend all scheduled team meetings to stay updated on projects and tasks.
+npm -v
 
-### ✅ Complete Assigned Tasks
+download strapi
+npx create-strapi-app@latest strapi-project --quickstart
 
-- Work on designated tasks/projects assigned by your supervisor.
+cd strapi-project
 
-### ✅ Communicate Regularly
+install docker and create a dockerfile
+yum install docker -y && systemctl start docker
 
-- Maintain open communication with your team via **Email** or **Microsoft Teams**.
+docker -v
 
-### ✅ Document Work Progress
+vim Dockerfile
 
-- Keep track of your work and **document progress regularly**.
+FROM node:18
 
-### ✅ Support Team Members
+WORKDIR /app
 
-- Offer help to colleagues whenever possible to foster teamwork.
+COPY package*.json ./
 
-### ✅ Meet Deadlines
+RUN npm install
 
-- Ensure all tasks are completed **on time** and to a satisfactory standard.
+COPY . .
 
-### ✅ Maintain Professionalism
+EXPOSE 1337
 
-- Uphold professionalism in **all communications** and **interactions**.
+CMD ["npm", "run", "develop"]
 
----
+docker build -t strapi-image .
 
-### Let's work together to build skills, contribute to the team, and grow professionally! 💫
+docker images
+
+docker run -itd --name strapi-cont -p 1337:1337 strapi-image
+
+docker ps
+
+access with instance public ip + 1337 (strapi default port).
+sign up with required credentials
+
+create a content on Content-Type Builder and save it will restart automatically.
+
+go to content manager and create a introduction then save and publish you can see it on home page.
+
+This is the final deployment for strapi application using docker.
+
+push the code to github repo and create a pull request
+yum install git -y
+
+git init
+
+git add .
+
+git commit -m "Initial commit - Strapi project"
+
+git remote add origin https://github.com/sairamreddy9666/strapi-demo.git
+
+git checkout -b sairam
+
+git push -u origin sairam
