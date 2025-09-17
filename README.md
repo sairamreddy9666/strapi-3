@@ -1,1 +1,1 @@
-STRAPI
+Strapi-3
